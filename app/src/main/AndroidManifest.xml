@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="false"
+        android:label="take app log"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme"
+        tools:targetApi="31"
+        tools:ignore="DataExtractionRules,MissingApplicationIcon" >
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="take app log to /sdcard/Android/data/{packageName}/cache/{time}.log" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="53" />
+    </application>
+
+</manifest>
