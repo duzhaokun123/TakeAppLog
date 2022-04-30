@@ -14,6 +14,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 public class XposedInit implements IXposedHookLoadPackage {
     static String TAG = "TakeAppLog";
     XC_MethodHook.Unhook unhook;
+    static boolean first = true;
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) {
@@ -21,6 +22,8 @@ public class XposedInit implements IXposedHookLoadPackage {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws IOException {
                 if (lpparam.packageName.contains(":")) return;
+                if (!first) return;
+                first = false;
                 var packageName = lpparam.packageName;
                 var application = (Application) param.args[0];
                 var file = application.getExternalCacheDir().getAbsolutePath() + "/" + System.currentTimeMillis() + ".log";

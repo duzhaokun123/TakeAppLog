@@ -1,1 +1,1 @@
--keep class io.github.duzhaokun123.takeapplog.XposedInit
+-keep class * implements de.robv.android.xposed.IXposedHookLoadPackage
